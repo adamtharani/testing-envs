@@ -1,0 +1,30 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  beta:
+    runs-on: ubuntu-latest
+    environment: beta
+    steps:
+      - name: deploy
+        run: echo deploy
+        
+   staging:
+    runs-on: ubuntu-latest
+    needs: beta
+    environment: staging
+    steps:
+      - name: deploy
+        run: echo deploy
+        
+   production:
+    runs-on: ubuntu-latest
+    needs: staging
+    environment: production
+    steps:
+      - name: deploy
+        run: echo deploy
