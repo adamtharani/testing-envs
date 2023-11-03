@@ -9,6 +9,7 @@ jobs:
   beta:
     runs-on: ubuntu-latest
     environment: beta
+      description: Testing 
     steps:
       - name: deploy
         run: echo deploy
